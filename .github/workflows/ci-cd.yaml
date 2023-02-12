@@ -9,6 +9,7 @@ env:
   DOTNET_VERSION: '7.0.x'
   AZURE_WEBAPP_NAME: epinero-first-webapp
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
