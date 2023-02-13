@@ -1,4 +1,4 @@
-namespace AnimalDatabase.Tests
+namespace PokemonDatabase.Tests
 {
     public class UnitTest1
     {

@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  DOTNET_VERSION: '7.0.x'
+  DOTNET_VERSION: '6.0.x'
   AZURE_WEBAPP_NAME: epinero-first-webapp
 
 
@@ -17,7 +17,7 @@ jobs:
       - name: Check out code 👀
         uses: actions/checkout@v3
       
-      - name: Setup .NET 7 🔧
+      - name: Setup .NET 6 🔧
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
