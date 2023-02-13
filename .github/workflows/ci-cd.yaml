@@ -3,7 +3,7 @@ name: Continuos Integration and Deployment
 on:
   push:
     branches:
-      - master
+    - master
 
 env:
   DOTNET_VERSION: '6.0.x'
@@ -23,16 +23,16 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore dependencies 🛠
-        run: dotnet restore
+        run: dotnet restore ./PokemonDatabase.Api.sln
 
       - name: Build app 📦
-        run: dotnet build -c Release --no-restore
+        run: dotnet build ./PokemonDatabase.Api.sln -c Release --no-restore
 
       - name: Run automated tests 🧪
-        run: dotnet test -c Release --no-build
+        run: dotnet test ./PokemonDatabase.Api.sln -c Release --no-build
 
       - name: Publish app 📰
-        run: dotnet publish -c Release -o './out'
+        run: dotnet publish ./PokemonDatabase.Api.sln -c Release -o './out'
 
       - name: Deploy to Azure Web Apps 🚀
         uses: azure/webapps-deploy@v2
