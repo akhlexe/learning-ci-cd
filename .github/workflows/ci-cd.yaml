@@ -7,7 +7,7 @@ on:
 
 env:
   DOTNET_VERSION: '6.0.x'
-  AZURE_WEBAPP_NAME: epinero-first-webapp
+  AZURE_WEBAPP_NAME: epinero-pokemon-app
 
 
 jobs:
