@@ -8,6 +8,7 @@ on:
 env:
   DOTNET_VERSION: '6.0.x'
   AZURE_WEBAPP_NAME: epinero-pokemon-app
+  AZURE_WEBAPP_PACKAGE_PATH: "./publish"
 
 jobs:
   build:
@@ -31,11 +32,11 @@ jobs:
         run: dotnet test ./PokemonDatabase.Api.sln -c Release --no-build
 
       - name: Publish app 📰
-        run: dotnet publish ./PokemonDatabase.Api.sln -c Release -o './out'
+        run: dotnet publish ./PokemonDatabase.Api.sln -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
 
       - name: Deploy to Azure Web Apps 🚀
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_SECRET }}
-          package: './out'
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
